@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>AboutUs</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="'/style.css'">
+    <div th:if="${session.userName} != null">
+        <p th:if="${#httpServletRequest.remoteUser}" th:text="'Inloggad som: ' + ${session.userName}"></p>
+    </div>
+</head>
+<body>
+<header>
+    <div class="header1">
+        <div class="header-text">
+            <thead>
+            <th><a href="/">Startsida</a></th>
+            <th><a href="/signup">Bli Medlem</a></th>
+            <th><a href="/organisations">Våra organisationer</a></th>
+            <th><a href="/donation">Donera</a></th>
+            <th><a href="/myPage">Mina sidor</a></th>
+            <th th:if="${#httpServletRequest.remoteUser == null}"><a href="/login">Logga in</a></th>
+            <th th:if="${#httpServletRequest.remoteUser}"><a href="/logout">Logga ut</a></th>
+            <th th:if="${#httpServletRequest.remoteUser}"><p th:text="${'Inloggad som: ' + #httpServletRequest.remoteUser}"></p></th>
+            </thead>
+        </div>
+    </div>
+</header>
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+                    <a href="#">Helpify </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
